@@ -261,8 +261,8 @@ MonoBehaviour:
   firePoint: {fileID: 1248347782}
   bulletPrefab: {fileID: 5740757221588215465, guid: 53c27f8b09bcb4741940284e9b7f86f4, type: 3}
   bulletForce: 20
---- !u!61 &27797638
-BoxCollider2D:
+--- !u!58 &27797638
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -274,19 +274,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18862021, y: -0.09721017}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.13, y: 2.07}
-    newSize: {x: 3.13, y: 2.07}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 1
+  m_Offset: {x: -0.4, y: -0.1}
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.5309682}
-  m_EdgeRadius: 0
+  m_Radius: 0.7
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
