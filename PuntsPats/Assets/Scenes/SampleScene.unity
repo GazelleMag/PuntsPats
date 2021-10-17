@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 27797636}
   - component: {fileID: 27797637}
   - component: {fileID: 27797638}
+  - component: {fileID: 27797639}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -203,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27797632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -2.96, z: 0}
+  m_LocalPosition: {x: 0.35, y: -3.79, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1248347782}
@@ -246,6 +247,7 @@ MonoBehaviour:
   movementSpeed: 5
   playerRb: {fileID: 27797635}
   camera: {fileID: 519420031}
+  animator: {fileID: 27797639}
 --- !u!114 &27797637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +279,25 @@ CircleCollider2D:
   m_Offset: {x: -0.4, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.7
+--- !u!95 &27797639
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27797632}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 091cb55060120e54b894101b0cdb333b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -2.96, z: -10}
+  m_LocalPosition: {x: 0.35, y: -3.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -455,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737072637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -2.96, z: -10}
+  m_LocalPosition: {x: 0.35, y: -3.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2026783491}
