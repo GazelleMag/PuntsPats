@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
   public Camera camera;
   Vector2 movement;
   Vector2 mousePos;
-  public Animator animator;
+  public PlayerAnimation playerAnimation;
 
   // Update is called once per frame
   void Update()
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     movement.x = Input.GetAxisRaw("Horizontal");
     movement.y = Input.GetAxisRaw("Vertical");
 
-		IdleRunAnimTransition(movement.x, movement.y);
+    ControlMovementAnimation(movement.x, movement.y);
 
     mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
   }
@@ -31,15 +31,15 @@ public class PlayerMovement : MonoBehaviour
     playerRb.rotation = angle;
   }
 
-  void IdleRunAnimTransition(float movementX, float movementY)
+  void ControlMovementAnimation(float movementX, float movementY)
   {
-			if (movementX != 0 || movementY != 0)
-			{
-				animator.SetBool("Moving", true);
-			}
-			else
-			{
-				animator.SetBool("Moving", false);
-			}
+    if(movementX != 0 || movementY != 0)
+    {
+      playerAnimation.IdleRunAnimTransition();
+    }
+    else
+    {
+      playerAnimation.RunIdleAnimTransition();
+    }
   }
 }
