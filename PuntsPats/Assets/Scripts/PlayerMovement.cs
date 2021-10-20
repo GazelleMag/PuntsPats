@@ -35,11 +35,11 @@ public class PlayerMovement : MonoBehaviour
   {
     if(movementX != 0 || movementY != 0)
     {
-      playerAnimation.IdleRunAnimTransition();
+      playerAnimation.RunAnimTransition();
     }
     else
     {
-      playerAnimation.RunIdleAnimTransition();
+      playerAnimation.IdleAnimTransition();
     }
   }
 }

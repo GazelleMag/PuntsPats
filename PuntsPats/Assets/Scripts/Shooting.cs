@@ -14,11 +14,7 @@ public class Shooting : MonoBehaviour
     if (Input.GetButtonDown("Fire1"))
     {
       Shoot();
-      playerAnimation.IdleShootAnimTransition();
-    }
-    else
-    {
-      playerAnimation.ShootIdleAnimTransition();
+      playerAnimation.ShootAnimTransition();
     }
   }
 

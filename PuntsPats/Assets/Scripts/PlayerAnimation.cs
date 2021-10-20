@@ -5,24 +5,19 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
   public Animator animator;
-  public void IdleRunAnimTransition()
-  {
-    animator.SetBool("Moving", true);
-  }
-
-  public void RunIdleAnimTransition()
+  public void IdleAnimTransition()
   {
     animator.SetBool("Moving", false);
   }
 
-  public void IdleShootAnimTransition()
+  public void RunAnimTransition()
   {
-    animator.SetBool("Shooting", true);
+    animator.SetBool("Moving", true);
   }
 
-
-  public void ShootIdleAnimTransition()
+  public void ShootAnimTransition()
   {
-    animator.SetBool("Shooting", false);
+    animator.SetTrigger("Shooting");
   }
+
 }
