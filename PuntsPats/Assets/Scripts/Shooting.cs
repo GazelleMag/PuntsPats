@@ -16,6 +16,11 @@ public class Shooting : MonoBehaviour
       Shoot();
       playerAnimation.ShootAnimTransition();
     }
+
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+      playerAnimation.ReloadAnimTransition();
+    }
   }
 
   void Shoot()

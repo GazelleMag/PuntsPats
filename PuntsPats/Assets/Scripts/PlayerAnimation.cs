@@ -20,4 +20,9 @@ public class PlayerAnimation : MonoBehaviour
     animator.SetTrigger("Shooting");
   }
 
+  public void ReloadAnimTransition()
+  {
+    animator.SetTrigger("Reloading");
+  }
+
 }
