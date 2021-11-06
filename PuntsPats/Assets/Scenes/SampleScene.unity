@@ -324,14 +324,6 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: -2594850149876650321, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1378525712}
-    - target: {fileID: -2594850149876650321, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
-      propertyPath: playerAnimation
-      value: 
-      objectReference: {fileID: 27797640}
     - target: {fileID: 1552222514290461079, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -490,6 +482,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aIPath: {fileID: 477090703}
+--- !u!114 &477090707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477090702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ff06e122e0f6944bc203f85b7e12b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1378525712}
+  bulletPrefab: {fileID: 5740757221588215465, guid: 53c27f8b09bcb4741940284e9b7f86f4, type: 3}
+  bulletForce: 20
+  playerAnimation: {fileID: 27797640}
+  playerTransform: {fileID: 27797634}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
