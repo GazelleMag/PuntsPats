@@ -324,6 +324,14 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: -2594850149876650321, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1378525712}
+    - target: {fileID: -2594850149876650321, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
+      propertyPath: playerAnimation
+      value: 
+      objectReference: {fileID: 27797640}
     - target: {fileID: 1552222514290461079, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -384,8 +392,7 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 27797639}
-    m_RemovedComponents:
-    - {fileID: 3885336316959545909, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
 --- !u!1 &477090702 stripped
 GameObject:
@@ -417,7 +424,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -470,6 +477,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 27797634}
+--- !u!114 &477090706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477090702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c91e99d0f28e5e4898ff8281ea06063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aIPath: {fileID: 477090703}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,6 +3054,11 @@ Transform:
   m_Father: {fileID: 27797634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!4 &1378525712 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5371025895979001721, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
+  m_PrefabInstance: {fileID: 477090701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1735163642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,7 +3103,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 1
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
