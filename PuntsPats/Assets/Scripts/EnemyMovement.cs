@@ -17,10 +17,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        faceDirection();
+        FaceDirection();
     }
 
-    void faceDirection() 
+    void FaceDirection() 
     {
         direction = aIPath.desiredVelocity;
         transform.right = direction;
