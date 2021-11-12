@@ -10,11 +10,19 @@ public class EnemyShooting : MonoBehaviour
   public PlayerAnimation playerAnimation;
   public Transform playerTransform;
 
+  private LayerMask environmentMask, playerMask;
+
+  void Start()
+  {
+    environmentMask = LayerMask.GetMask("Environment");
+    playerMask = LayerMask.GetMask("Player");
+  }
+
   // Update is called once per frame
   void Update()
   {
     //CalculateDistFromPlayer();
-    DrawRaycast();
+    PointGunRaycast();
 
     //time to shoot
     //Shoot();
@@ -30,41 +38,22 @@ public class EnemyShooting : MonoBehaviour
     rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
   }
 
-  /*void CalculateDistFromPlayer()
+  void PointGunRaycast() 
   {
-    if (playerTransform)
-    {
-      float distance = Vector2.Distance(playerTransform.position, transform.position);
-      print("My distance from player is: " + distance);
-    }
-  }*/
-
-  void DrawRaycast() {
     Vector2 startPos = gameObject.transform.position;
     Vector2 endPos = gameObject.transform.right * 5;
+    
     Debug.DrawRay(startPos, endPos, Color.red);
-
-    LayerMask environmentMask = LayerMask.GetMask("Environment");
-    LayerMask playerMask = LayerMask.GetMask("Player");
-
-    //RaycastHit2D hit = Physics2D.Raycast(startPos, endPos, 5, mask);
-
-    /*if(Physics.Raycast (startPos, endPos, out hit)) {
-      Debug.Log(hit.transform.name + " was hit");
-    }*/
-
-    /*if(hit.collider != null) {
-      Debug.Log(hit.transform.name + " was hit");
-    }*/
 
     if(!Physics2D.Raycast(startPos, endPos, 5, environmentMask))
     {
-      Debug.Log("A wall is not being it!");
       if(Physics2D.Raycast(startPos, endPos, 5, playerMask))
       {
-        Debug.Log("Player is being it!");
+        Shoot();
       }
     }
-
   }
+
+
+
 }
