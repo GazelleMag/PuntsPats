@@ -6,11 +6,16 @@ public class EnemyShooting : MonoBehaviour
 {
   public Transform firePoint;
   public GameObject bulletPrefab;
-  public float bulletForce = 20f;
-  public PlayerAnimation playerAnimation;
+  private float bulletForce = 20f;
+  private bool allowFire = false;
+  private bool lookingAtPlayer = false;
   public Transform playerTransform;
 
+  public PlayerAnimation playerAnimation;
   private LayerMask environmentMask, playerMask;
+
+  private float fireRate = 0.5f;
+  private float nextFire = 0.0f;
 
   void Start()
   {
@@ -21,35 +26,44 @@ public class EnemyShooting : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    //CalculateDistFromPlayer();
     PointGunRaycast();
 
-    //time to shoot
-    //Shoot();
+    if (lookingAtPlayer)
+    {
+      Shoot();
+    }
 
     //time to reload
-    //reload
+    //Reload()
   }
 
   void Shoot()
   {
-    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-    rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    if (Time.time > nextFire)
+    {
+      nextFire = Time.time + fireRate;
+      GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+      Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+      rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
   }
 
-  void PointGunRaycast() 
+  void PointGunRaycast()
   {
     Vector2 startPos = gameObject.transform.position;
     Vector2 endPos = gameObject.transform.right * 5;
-    
+
     Debug.DrawRay(startPos, endPos, Color.red);
 
-    if(!Physics2D.Raycast(startPos, endPos, 5, environmentMask))
+    if (!Physics2D.Raycast(startPos, endPos, 5, environmentMask))
     {
-      if(Physics2D.Raycast(startPos, endPos, 5, playerMask))
+      if (Physics2D.Raycast(startPos, endPos, 5, playerMask))
       {
-        Shoot();
+        lookingAtPlayer = true;
+      }
+      else
+      {
+        lookingAtPlayer = false;
       }
     }
   }
