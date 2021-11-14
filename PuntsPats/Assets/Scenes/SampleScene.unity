@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aIPath: {fileID: 477090703}
+  player: {fileID: 0}
 --- !u!114 &477090707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,9 +497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1378525712}
   bulletPrefab: {fileID: 5740757221588215465, guid: 53c27f8b09bcb4741940284e9b7f86f4, type: 3}
-  bulletForce: 20
-  playerAnimation: {fileID: 27797640}
   playerTransform: {fileID: 27797634}
+  playerAnimation: {fileID: 27797640}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
