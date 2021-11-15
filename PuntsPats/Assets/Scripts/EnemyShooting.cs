@@ -50,8 +50,9 @@ public class EnemyShooting : MonoBehaviour
 
   void PointGunRaycast()
   {
-    Vector2 startPos = gameObject.transform.position;
-    Vector2 endPos = gameObject.transform.right * 5;
+    Vector2 startPos = firePoint.transform.position;
+    Vector2 endPos = firePoint.transform.right * 5;
+    endPos = RotateVector2(endPos, 1.60f);
 
     Debug.DrawRay(startPos, endPos, Color.red);
 
@@ -68,6 +69,12 @@ public class EnemyShooting : MonoBehaviour
     }
   }
 
-
-
+  //I use this to rotate the raycast
+  Vector2 RotateVector2(Vector2 vec, float delta)
+  {
+    return new Vector2(
+            vec.x * Mathf.Cos(delta) - vec.y * Mathf.Sin(delta),
+            vec.x * Mathf.Sin(delta) + vec.y * Mathf.Cos(delta)
+        );
+  }
 }

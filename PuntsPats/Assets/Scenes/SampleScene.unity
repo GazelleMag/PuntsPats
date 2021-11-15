@@ -278,9 +278,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4, y: -0.1}
+  m_Offset: {x: -0.5, y: -0.1}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.8
 --- !u!95 &27797639
 Animator:
   serializedVersion: 3
@@ -322,7 +322,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9163122996978186414, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
       propertyPath: m_Radius
-      value: 0.7
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -9163122996978186414, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1552222514290461079, guid: 25e473300888bf64a8f037580a45b5e8, type: 3}
       propertyPath: m_Name
@@ -483,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aIPath: {fileID: 477090703}
   player: {fileID: 0}
+  firePoint: {fileID: 1378525712}
 --- !u!114 &477090707
 MonoBehaviour:
   m_ObjectHideFlags: 0
