@@ -7,9 +7,7 @@ public class EnemyShooting : MonoBehaviour
   public Transform firePoint;
   public GameObject bulletPrefab;
   private float bulletForce = 20f;
-  private bool allowFire = false;
   private bool lookingAtPlayer = false;
-  public Transform playerTransform;
   private Rigidbody2D enemyRb;
 
   public PlayerAnimation playerAnimation;

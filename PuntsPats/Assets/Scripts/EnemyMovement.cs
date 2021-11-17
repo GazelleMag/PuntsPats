@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     DecideLookMethod();
   }
 
+  // this logic is to fix the problem where the enemy spins when colliding with the player
   void DecideLookMethod()
   {
     if(CalculateDistFromPlayer() >= 1.5f)
