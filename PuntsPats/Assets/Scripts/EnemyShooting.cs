@@ -10,6 +10,7 @@ public class EnemyShooting : MonoBehaviour
   private bool allowFire = false;
   private bool lookingAtPlayer = false;
   public Transform playerTransform;
+  private Rigidbody2D enemyRb;
 
   public PlayerAnimation playerAnimation;
   private LayerMask environmentMask, playerMask;
@@ -77,4 +78,5 @@ public class EnemyShooting : MonoBehaviour
             vec.x * Mathf.Sin(delta) + vec.y * Mathf.Cos(delta)
         );
   }
+
 }
