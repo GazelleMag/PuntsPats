@@ -7,23 +7,18 @@ public class SpawnPoint : MonoBehaviour
 {
   public GameObject[] spawnLocations;
   public GameObject enemy;
-  public GameObject player;
-  private Vector3 respawnLocation;
-  //private AIDestinationSetter destinationSetter; -> this should probably be called from one of the enemy's scripts
+  //private Vector3 respawnLocation;
 
   void Awake() 
   {
     spawnLocations = GameObject.FindGameObjectsWithTag("SpawnPoint");
+    Debug.Log(spawnLocations);
   }
 
   // Start is called before the first frame update
   void Start()
   {
-    //destinationSetter = gameObject.GetComponent(destinationSetter);
-    respawnLocation = enemy.transform.position;
-    player = GameObject.Find("Player");
-    //Debug.Log(destinationSetter);
-    //destinationSetter.target = player.transform;
+    //respawnLocation = enemy.transform.position;
     SpawnEnemy();
   }
 
