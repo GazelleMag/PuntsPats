@@ -16,18 +16,17 @@ public class LevelController : MonoBehaviour
 
   void Start()
   {
+    InitialSpawnEnemy();
+  }
+
+  void Update()
+  {
     /*if(enemyCounter != enemyTotal)
     {
       spawnIndex = ChooseRandomSpawnPoint();
       SpawnEnemy(spawnIndex);
       enemyCounter++;
     }*/
-    InitialSpawnEnemy();
-  }
-
-  void Update()
-  {
-    
   }
 
   void InitialSpawnEnemy()
