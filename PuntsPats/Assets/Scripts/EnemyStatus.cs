@@ -6,26 +6,31 @@ public class EnemyStatus : MonoBehaviour
 {
   public int maxHealth = 100;
   public int currentHealth;
-  public GameObject healthBarCanvasPrefab, healthBarCanvas;
   public HealthBar healthBar;
 
-  /*void Start()
+  void Start()
   {
-    healthBarCanvas = Instantiate(healthBarCanvasPrefab, healthBarCanvasPrefab.transform.position, healthBarCanvasPrefab.transform.rotation) as GameObject;
-    healthBar = healthBarCanvas.GetComponentInChildren<HealthBar>();
-    healthBar.SetMaxHealth(maxHealth);
     currentHealth = maxHealth;
-    Debug.Log(healthBar);
+
+    healthBar = gameObject.GetComponentInChildren<HealthBar>();
   }
 
   void Update()
   {
-
+    if(currentHealth <= 0)
+    {
+      Die();
+    }
   }
 
-  void TakeDamage(int damage)
+  public void TakeDamage(int damage)
   {
     currentHealth -= damage;
     healthBar.SetHealth(currentHealth);
-  }*/
+  }
+
+  void Die()
+  {
+    Destroy(gameObject);
+  }
 }

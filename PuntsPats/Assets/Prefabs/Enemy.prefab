@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: -7749826934865931322}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,8 +294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  healthBarCanvasPrefab: {fileID: 7962304244186865177, guid: 67c7f2821874ad84288d6679847c7cd7, type: 3}
-  healthBarCanvas: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!1001 &6773220996920697551
 PrefabInstance:
