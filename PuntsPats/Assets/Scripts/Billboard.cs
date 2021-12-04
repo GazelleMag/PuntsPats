@@ -14,6 +14,7 @@ public class Billboard : MonoBehaviour
   {
     rotation = transform.parent.rotation;
     positionOffset = transform.localPosition;
+    CalibrateBillboardOffset();
   }
 
   void Start()
@@ -28,5 +29,11 @@ public class Billboard : MonoBehaviour
     transform.position = transform.parent.position + positionOffset;
 
     transform.LookAt(transform.position + cameraTransform.forward);
+  }
+
+  void CalibrateBillboardOffset()
+  {
+    positionOffset.y -= 0.16f;
+    positionOffset.x += 0.37f;
   }
 }
