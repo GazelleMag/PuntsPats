@@ -6,12 +6,14 @@ public class EnemyStatus : MonoBehaviour
 {
   public int maxHealth = 100;
   public int currentHealth;
+  public LevelController levelController;
   public HealthBar healthBar;
 
   void Start()
   {
     currentHealth = maxHealth;
 
+    levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
     healthBar = gameObject.GetComponentInChildren<HealthBar>();
   }
 
@@ -32,5 +34,6 @@ public class EnemyStatus : MonoBehaviour
   void Die()
   {
     Destroy(gameObject);
+    levelController.DecrementEnemy();
   }
 }

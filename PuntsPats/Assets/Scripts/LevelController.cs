@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-  private int enemyTotal = 2, enemyCounter = 0;
-  private int spawnIndex;
+  private int enemyTotal = 4, enemyCounter = 4;
+  private int spawnIndex, lastSpawnIndex;
   public GameObject[] spawnPoints;
   public GameObject enemyPrefab;
-  
+
   void Awake()
   {
     spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
@@ -21,30 +21,45 @@ public class LevelController : MonoBehaviour
 
   void Update()
   {
-    /*if(enemyCounter != enemyTotal)
-    {
-      spawnIndex = ChooseRandomSpawnPoint();
-      SpawnEnemy(spawnIndex);
-      enemyCounter++;
-    }*/
-  }
-
-  void InitialSpawnEnemy()
-  {
-    for(int i = 0; i < spawnPoints.Length; i++)
-    {
-      SpawnEnemy(i);
-    }
+    KeepNumberOfEnemies();
   }
 
   int ChooseRandomSpawnPoint()
   {
     int spawnIndex = Random.Range(0, spawnPoints.Length);
+    while (spawnIndex == lastSpawnIndex)
+    {
+      spawnIndex = Random.Range(0, spawnPoints.Length);
+    }
+    lastSpawnIndex = spawnIndex;
     return spawnIndex;
   }
 
   void SpawnEnemy(int spawnIndex)
   {
     GameObject.Instantiate(enemyPrefab, spawnPoints[spawnIndex].transform.position, Quaternion.identity);
+  }
+
+  void InitialSpawnEnemy()
+  {
+    for (int i = 0; i < spawnPoints.Length; i++)
+    {
+      SpawnEnemy(i);
+    }
+  }
+
+  void KeepNumberOfEnemies()
+  {
+    if (enemyCounter != enemyTotal)
+    {
+      spawnIndex = ChooseRandomSpawnPoint();
+      SpawnEnemy(spawnIndex);
+      enemyCounter++;
+    }
+  }
+
+  public void DecrementEnemy()
+  {
+    enemyCounter--;
   }
 }
