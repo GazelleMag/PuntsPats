@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+public class PlayerStatus : MonoBehaviour
 {
   public int maxHealth = 100;
   public int currentHealth;
-  public LevelController levelController;
   public HealthBar healthBar;
 
   void Start()
   {
-    levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
     healthBar = gameObject.GetComponentInChildren<HealthBar>();
-
     currentHealth = maxHealth;
     healthBar.SetMaxHealth(maxHealth);
   }
@@ -35,6 +32,5 @@ public class EnemyStatus : MonoBehaviour
   void Die()
   {
     Destroy(gameObject);
-    levelController.DecrementEnemy();
   }
 }

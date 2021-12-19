@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
   public GameObject hitEffect; //-> set an effect for the bullet
 
   public EnemyStatus enemyStatus;
+  public PlayerStatus playerStatus;
 
   void Update()
   {
@@ -23,6 +24,12 @@ public class Bullet : MonoBehaviour
     {
       enemyStatus = collision.gameObject.GetComponent<EnemyStatus>();
       enemyStatus.TakeDamage(10);
+      Destroy(gameObject);
+    }
+    else if(collision.gameObject.tag == "Player")
+    {
+      playerStatus = collision.gameObject.GetComponent<PlayerStatus>();
+      playerStatus.TakeDamage(10);
       Destroy(gameObject);
     }
     else
