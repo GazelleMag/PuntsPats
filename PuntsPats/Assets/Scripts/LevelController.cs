@@ -8,6 +8,9 @@ public class LevelController : MonoBehaviour
   private int spawnIndex, lastSpawnIndex;
   public GameObject[] spawnPoints;
   public GameObject enemyPrefab;
+  public GameOverScreen gameOverScreen;
+  public int killedEnemiesCount;
+  public bool gameOver;
 
   void Awake()
   {
@@ -16,12 +19,23 @@ public class LevelController : MonoBehaviour
 
   void Start()
   {
+    gameOver = false;
+    killedEnemiesCount = 0;
     InitialSpawnEnemy();
   }
 
   void Update()
   {
     KeepNumberOfEnemies();
+    
+    if(gameOver)
+    {
+      Time.timeScale = 0f;
+    }
+    else
+    {
+      Time.timeScale = 1f;
+    }
   }
 
   int ChooseRandomSpawnPoint()
@@ -60,6 +74,12 @@ public class LevelController : MonoBehaviour
 
   public void DecrementEnemy()
   {
+    killedEnemiesCount++;
     enemyCounter--;
+  }
+
+  public void ShowGameOverScreen()
+  {
+    gameOverScreen.SetupScreen(killedEnemiesCount);
   }
 }

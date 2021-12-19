@@ -7,6 +7,7 @@ public class PlayerStatus : MonoBehaviour
   public int maxHealth = 100;
   public int currentHealth;
   public HealthBar healthBar;
+  public LevelController levelController;
 
   void Start()
   {
@@ -31,6 +32,7 @@ public class PlayerStatus : MonoBehaviour
 
   void Die()
   {
-    Destroy(gameObject);
+    levelController.ShowGameOverScreen();
+    //Destroy(gameObject);
   }
 }

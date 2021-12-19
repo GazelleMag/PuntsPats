@@ -8,13 +8,24 @@ public class PlayerShooting : MonoBehaviour
   public GameObject bulletPrefab;
   public float bulletForce = 20f;
   public PlayerAnimation playerAnimation;
-  // Update is called once per frame
+  public LevelController levelController;
+  private bool gameOver;
+
+  void Start()
+  {
+    gameOver = levelController.gameOver;
+  }
+
   void Update()
   {
-    if (Input.GetButtonDown("Fire1"))
+    if (Input.GetButtonDown("Fire1") && gameOver == false)
     {
-      Shoot();
-      playerAnimation.ShootAnimTransition();
+      gameOver = levelController.gameOver;
+      if (gameOver == false)
+      {
+        Shoot();
+        playerAnimation.ShootAnimTransition();
+      }
     }
 
     if (Input.GetKeyDown(KeyCode.R))
