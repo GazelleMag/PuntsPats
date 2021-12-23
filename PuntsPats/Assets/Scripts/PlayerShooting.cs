@@ -11,6 +11,9 @@ public class PlayerShooting : MonoBehaviour
   public LevelController levelController;
   private bool gameOver;
 
+  private float fireRate = 0.125f;
+  private float nextFire = 0.0f;
+
   void Start()
   {
     gameOver = levelController.gameOver;
@@ -18,7 +21,7 @@ public class PlayerShooting : MonoBehaviour
 
   void Update()
   {
-    if (Input.GetButtonDown("Fire1") && gameOver == false)
+    if (Input.GetButton("Fire1") && gameOver == false)
     {
       if (!GameIsOver())
       {
@@ -35,9 +38,13 @@ public class PlayerShooting : MonoBehaviour
 
   void Shoot()
   {
-    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-    rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    if (Time.time > nextFire)
+    {
+      nextFire = Time.time + fireRate;
+      GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+      Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+      rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
   }
 
   bool GameIsOver()

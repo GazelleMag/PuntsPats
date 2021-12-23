@@ -24,7 +24,6 @@ public class GameOverScreen : MonoBehaviour
 
   public void QuitButton()
   {
-    Debug.Log("Quitting game...");
     Application.Quit();
   }
 }
