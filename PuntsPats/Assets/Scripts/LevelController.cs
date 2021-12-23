@@ -27,8 +27,8 @@ public class LevelController : MonoBehaviour
   void Update()
   {
     KeepNumberOfEnemies();
-    
-    if(gameOver)
+
+    if (gameOver)
     {
       Time.timeScale = 0f;
     }

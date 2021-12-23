@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-  public GameObject camera;
+  public GameObject mainCamera;
   public Transform cameraTransform;
 
   Quaternion rotation;
@@ -19,8 +19,8 @@ public class Billboard : MonoBehaviour
 
   void Start()
   {
-    camera = GameObject.Find("Main Camera");
-    cameraTransform = camera.transform;
+    mainCamera = GameObject.Find("Main Camera");
+    cameraTransform = mainCamera.transform;
   }
 
   void LateUpdate()

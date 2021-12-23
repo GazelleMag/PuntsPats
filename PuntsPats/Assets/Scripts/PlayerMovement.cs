@@ -6,12 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
   public float movementSpeed = 5f;
   public Rigidbody2D playerRb;
-  public Camera camera;
+  public Camera mainCamera;
   Vector2 movement;
   Vector2 mousePos;
   public PlayerAnimation playerAnimation;
 
-  // Update is called once per frame
   void Update()
   {
     movement.x = Input.GetAxisRaw("Horizontal");
@@ -19,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     ControlMovementAnimation(movement.x, movement.y);
 
-    mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+    mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
   }
 
   void FixedUpdate()

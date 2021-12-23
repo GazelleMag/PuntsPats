@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   playerRb: {fileID: 27797635}
-  camera: {fileID: 519420031}
+  mainCamera: {fileID: 519420031}
   playerAnimation: {fileID: 27797640}
 --- !u!114 &27797637
 MonoBehaviour:

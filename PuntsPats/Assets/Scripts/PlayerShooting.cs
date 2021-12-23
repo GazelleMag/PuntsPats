@@ -20,8 +20,7 @@ public class PlayerShooting : MonoBehaviour
   {
     if (Input.GetButtonDown("Fire1") && gameOver == false)
     {
-      gameOver = levelController.gameOver;
-      if (gameOver == false)
+      if (!GameIsOver())
       {
         Shoot();
         playerAnimation.ShootAnimTransition();
@@ -39,5 +38,15 @@ public class PlayerShooting : MonoBehaviour
     GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
     rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+  }
+
+  bool GameIsOver()
+  {
+    gameOver = levelController.gameOver;
+    if (gameOver)
+    {
+      return true;
+    }
+    return false;
   }
 }

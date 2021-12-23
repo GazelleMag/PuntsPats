@@ -22,7 +22,6 @@ public class EnemyShooting : MonoBehaviour
     playerMask = LayerMask.GetMask("Player");
   }
 
-  // Update is called once per frame
   void Update()
   {
     PointGunRaycast();

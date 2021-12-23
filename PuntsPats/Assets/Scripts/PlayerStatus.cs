@@ -33,6 +33,5 @@ public class PlayerStatus : MonoBehaviour
   void Die()
   {
     levelController.ShowGameOverScreen();
-    //Destroy(gameObject);
   }
 }

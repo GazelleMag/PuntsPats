@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
   public float destroyTime = 3.5f;
-  public GameObject hitEffect; //-> set an effect for the bullet
+  public GameObject hitEffect;
 
   public EnemyStatus enemyStatus;
   public PlayerStatus playerStatus;
@@ -22,21 +22,37 @@ public class Bullet : MonoBehaviour
   {
     if (collision.gameObject.tag == "Enemy")
     {
-      enemyStatus = collision.gameObject.GetComponent<EnemyStatus>();
-      enemyStatus.TakeDamage(10);
-      Destroy(gameObject);
+      CollisionOnEnemy(collision);
     }
-    else if(collision.gameObject.tag == "Player")
+    else if (collision.gameObject.tag == "Player")
     {
-      playerStatus = collision.gameObject.GetComponent<PlayerStatus>();
-      playerStatus.TakeDamage(10);
-      Destroy(gameObject);
+      CollisionOnPlayer(collision);
     }
     else
     {
-      GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-      Destroy(effect, 2.5f);
-      Destroy(gameObject);
+      CollisionOnWall();
     }
   }
+
+  void CollisionOnEnemy(Collision2D collision)
+  {
+    enemyStatus = collision.gameObject.GetComponent<EnemyStatus>();
+    enemyStatus.TakeDamage(10);
+    Destroy(gameObject);
+  }
+
+  void CollisionOnPlayer(Collision2D collision)
+  {
+    playerStatus = collision.gameObject.GetComponent<PlayerStatus>();
+    playerStatus.TakeDamage(10);
+    Destroy(gameObject);
+  }
+
+  void CollisionOnWall()
+  {
+    GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+    Destroy(effect, 2.5f);
+    Destroy(gameObject);
+  }
+
 }
