@@ -25,7 +25,7 @@ public class EnemyShooting : MonoBehaviour
   void Update()
   {
     PointGunRaycast();
-
+    Debug.Log(lookingAtPlayer);
     if (lookingAtPlayer)
     {
       Shoot();
@@ -66,6 +66,11 @@ public class EnemyShooting : MonoBehaviour
       }
     }
   }
+
+  /*bool LookingAtPlayer()
+  {
+    
+  }*/
 
   //I use this to rotate the raycast
   Vector2 RotateVector2(Vector2 vec, float delta)

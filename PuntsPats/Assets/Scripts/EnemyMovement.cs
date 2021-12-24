@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
   void Start()
   {
+    SetMovementSpeed();
     player = GameObject.Find("Player");
   }
 
@@ -20,10 +21,15 @@ public class EnemyMovement : MonoBehaviour
     DecideLookMethod();
   }
 
+  void SetMovementSpeed()
+  {
+    aIPath.maxSpeed = 1.5f;
+  }
+
   // this logic is to fix the problem where the enemy spins when colliding with the player
   void DecideLookMethod()
   {
-    if(CalculateDistFromPlayer() >= 1.5f)
+    if (CalculateDistFromPlayer() >= 1.5f)
     {
       LookAtPlayerFar();
     }
