@@ -368,6 +368,7 @@ MonoBehaviour:
   bulletForce: 20
   playerAnimation: {fileID: 27797640}
   levelController: {fileID: 71843770}
+  targetCursor: {fileID: 2800000, guid: 40df4b21345070e4ea4812201a529cc4, type: 3}
 --- !u!58 &27797638
 CircleCollider2D:
   m_ObjectHideFlags: 0
